@@ -1,0 +1,226 @@
+/* Обнуляем отступы для всей страницы и растягиваем на весь экран */
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh; /* Минимальная высота — 100% видимого экрана */
+}
+
+/* Настройки для самого главного контейнера React */
+#root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: none; /* Убираем ограничение Vite по ширине */
+  text-align: center;
+}
+
+.body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    flex-direction: column;
+    width: 100%;
+    background: linear-gradient(-45deg, #0f172a, #1e1b4b, #311042, #0284c7);
+    background-size: 400% 400%;
+    animation: gradient-animation 10s ease infinite;
+    background-repeat: no-repeat;
+    background-position: center center; 
+    background-size: cover; 
+    background-attachment: fixed; 
+}
+
+
+@keyframes gradient-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.main, .additionaly {
+    background-color: #090d16;
+    width: 400px;
+    height: 650px;
+    border-radius: 20px;
+    text-align: center;
+    padding: 15px;
+    border: 1px solid #7c3aed;
+    box-shadow: rgba(168, 85, 247, 0.4);
+}
+
+.calc {color: #f8fafc; font-size: 34px;}
+
+.podin {color: #94a3b8; text-align: left; margin: 5px;}
+
+.input {
+    border: 1px solid #334155;
+    border-radius: 15px;
+    width: 90%;
+    height: 40px;
+    background-color: #1e293b;
+    color: #fff;
+    margin: 5px;
+}
+
+.result {
+    border-radius: 20px;
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.rt {
+    border: 2px solid #166534;
+    background-color: #0c1912;
+    border-radius: 10px;
+    margin: 15px;
+    width: 50%;
+}
+
+.bt {
+    border: 2px solid #9a3412;
+    background-color: #1c110c;
+    border-radius: 10px;
+    margin: 15px;
+    width: 50%;
+}
+
+.modegame {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    font-family: sans-serif;
+}
+
+.mode {
+    border: 2px solid #7c3aed;
+    border-radius: 10px;
+    margin: 40px;
+    width: 200px;
+    height: 50px;
+    background-color: #1e293b;
+    color: #facc15;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    box-shadow: rgba(168, 85, 247, 0.4);
+}
+.main-text { font-weight: bold; font-size: 16px; color: #1e293b; }
+.sub-text { font-size: 12px; color: #94a3b8; margin-top: 2px; }
+.dropdown-menu {
+    position: absolute;
+
+    top: -20px;
+    left: 95%;
+    margin-left: 10px;
+  
+    width: 200px;
+    background-color: #0b0f19;
+    border: 2px solid #7c3aed;
+    border-radius: 10px;
+    margin: 0; padding: 0; list-style: none;
+  
+    max-width: 0;
+    opacity: 0;
+    overflow: hidden;
+    white-space: nowrap;
+  
+    transition: all 0.4s ease; 
+}
+.dropdown-item {
+    border: 1px;
+    background-color: #0b0f19;
+    border-radius: 20px;
+    padding: 10px 15px;
+    color: #94a3b8;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.dropdown-menu.open {max-width: 300px; opacity: 1;}
+
+.rasch {
+    border: 2px solid #7c3aed;
+    border-radius: 10px;
+    width: 90%;
+    height: 45px;
+    background-color: #1e293b;
+    color: #000;
+    margin: 15px;
+    cursor: pointer;
+    box-shadow: rgba(168, 85, 247, 0.4);
+    color: #f8fafc;
+}
+
+.rbt {color: #facc15;}
+
+.mode:hover, .rasch:hover, .mc:hover {background-color: #2e3e56;}
+.dropdown-item:hover {background-color: #2e3e56;}
+
+.mode, .main_text, .rasch, .mc {font-size: 20px; font-weight: bold;}
+.sub-text {font-size: 14px;}
+
+@keyframes click_on_button {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.5);
+    }
+    80% {
+        transform: scale(0.8);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.anim {animation: click_on_button 0.3s ease-in-out;}
+
+.tm.select {background-color: #2e3e56;}
+
+.modecalc {
+    margin: 5px;
+    display: flex;
+    flex-direction: row;
+}
+
+.mc {
+    border: 0px;
+    border-radius: 20px;
+    width: 90%;
+    height: 45px;
+    background-color: #1e293b;
+    color: #000;
+    margin: 0px;
+    cursor: pointer;
+    box-shadow: rgba(168, 85, 247, 0.4);
+    color: #f8fafc;
+}
+
+.all_inputs {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+@media (max-width: 768px) {
+    .all_inputs {
+        flex-direction: column;
+        gap: 15px;
+        padding: 0 10px;
+    }
+
+    .main, .additionaly {
+        width: 100%; 
+        max-width: 100%;
+    }
+}
